@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
+import { toast } from 'react-toastify';
 
 const Register = () => {
     const {createNewUser,googleSignIn} = use(AuthContext);
@@ -16,9 +17,11 @@ const Register = () => {
        createNewUser(email,password)
        .then(result=>{
         console.log(result.user)
+        toast.success("registered successfully")
        })
        .catch(error=>{
         console.log(error)
+        toast.error(error.message)
        })
 
       

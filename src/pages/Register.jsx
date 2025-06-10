@@ -2,6 +2,8 @@ import React, { use } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 import { toast } from 'react-toastify';
+import { updateProfile } from 'firebase/auth';
+import { auth } from '../firebase/firebase.config';
 
 const Register = () => {
     const {createNewUser,googleSignIn} = use(AuthContext);
@@ -18,6 +20,15 @@ const Register = () => {
        .then(result=>{
         console.log(result.user)
         toast.success("registered successfully")
+        updateProfile(result.user,{
+            photoURL:photo
+        })
+        .then(()=>{
+            console.log('user information')
+        })
+        .catch((error)=>{
+      console.log(error)
+        })
        })
        .catch(error=>{
         console.log(error)

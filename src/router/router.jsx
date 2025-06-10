@@ -9,6 +9,7 @@ import AllPackages from "../pages/AllPackages";
 import About from "../pages/About";
 import MyBookings from "../PrivatePage/MyBookings";
 import AddPackage from "../PrivatePage/AddPackage";
+import ManagePackage from "../PrivatePage/ManagePackage";
 
 
 
@@ -23,7 +24,8 @@ export const router = createBrowserRouter([
     },
     {
    path:"/allPackages",
-   element:<AllPackages></AllPackages>
+   element:<AllPackages></AllPackages>,
+   loader:()=>fetch('http://localhost:3000/addPackage')
     },
     {
     path:"/about",
@@ -36,6 +38,11 @@ export const router = createBrowserRouter([
     {
       path:"/addPackage",
       element:<AddPackage></AddPackage>
+
+    },
+    {
+      path:"/managePackage",
+      element:<ManagePackage></ManagePackage>
 
     },
     {

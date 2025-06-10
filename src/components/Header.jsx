@@ -1,14 +1,16 @@
 import React, { use } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import { Link, Links } from 'react-router';
+import { Link, Links, NavLink } from 'react-router';
+import logo2 from "../../src/assets/logo2.webp"
 
 const Header = () => {
   const {user,logOut} =use(AuthContext);
+  console.log(user?.photoURL)
 
   const links=<>
   <Link to="/">Home</Link>
   <Link className='mx-3' to="/allPackages">All Packages</Link>
-  <Link to="/about">About Us</Link>
+  <Link className='mr-3' to="/about">About Us</Link>
   {user && <Link to='/mybookings'>My Bookings</Link>}
   </>
 
@@ -31,7 +33,14 @@ const Header = () => {
       {links}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">daisyUI</a>
+    <div className='flex justify-center items-center'>
+      <div className='rounded-full w-16 h-16 shadow-2xl overflow-hidden '>
+<img className=' w-full h-full object-cover' src={logo2} alt="" />
+      </div>
+      
+      < h1 className=" text-xl font-bold">Jet_Trove</h1>
+    </div>
+ 
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -39,21 +48,47 @@ const Header = () => {
     </ul>
   </div>
   <div className="navbar-end">
-
-    {
-user ? <>
-      <button>{user.email}</button>
-      <button onClick={handleLogOut}>logout</button>
-      
-      </> : <Link to='login'>Login</Link>
-    }
-    
-      
-
+{(user) ? 
+   
+   <>
+<div className="dropdown dropdown-start mr-8">
+  <div tabIndex={0} role="" className="m-1">
+<div className="avatar">
+  <div className="w-24 rounded-full">
+    <img className="w-[100px]  p-4 rounded-full" src={user?.photoURL} alt="" />
   </div>
 </div>
 
 
+</div>
+  <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 mr-8 shadow-sm">
+   <li><NavLink to='/addPackage'>Add Package
+    </NavLink>
+    </li>
+   <li><NavLink to='/managePackage'>Manage Package
+    </NavLink></li>
+
+       <li><button onClick={handleLogOut}>Logout</button></li> 
+  </ul>
+</div>
+
+</> :<>
+     <button className='btn'><NavLink to='/login'>Login</NavLink> 
+    </button>
+   
+    </>
+    
+  
+  }
+  </div>
+
+
+      
+
+  
+
+
+</div>
        </>
     );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 
 const PackageDetails = () => {
+    console.log()
     return (
         <div>
             

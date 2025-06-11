@@ -10,6 +10,7 @@ import About from "../pages/About";
 import MyBookings from "../PrivatePage/MyBookings";
 import AddPackage from "../PrivatePage/AddPackage";
 import ManagePackage from "../PrivatePage/ManagePackage";
+import PackageDetails from "../PrivatePage/PackageDetails";
 
 
 
@@ -43,6 +44,11 @@ export const router = createBrowserRouter([
     {
       path:"/managePackage",
       element:<ManagePackage></ManagePackage>
+
+    },
+    {
+      path:"/packageDetails/:id",
+      element:<PackageDetails></PackageDetails>
 
     },
     {

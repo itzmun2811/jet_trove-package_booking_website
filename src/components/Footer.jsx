@@ -1,12 +1,22 @@
 import React from 'react';
+import logo2 from "../assets/logo2.webp"
 
 const Footer = () => {
     return (
+    
     <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
+  
+  <div className='flex justify-center items-center'>
+        <div className='rounded-full w-16 h-16 shadow-2xl overflow-hidden '>
+  <img className=' w-full h-full object-cover' src={logo2} alt="" />
+        </div>
+        
+        < h1 className=" text-xl font-bold">Jet_Trove</h1>
+      </div>
   <nav className="grid grid-flow-col gap-4">
     <a className="link link-hover">About us</a>
     <a className="link link-hover">Contact</a>
-    <a className="link link-hover">Jobs</a>
+    <a className="link link-hover">Terms & Conditions</a>
     <a className="link link-hover">Press kit</a>
   </nav>
   <nav>

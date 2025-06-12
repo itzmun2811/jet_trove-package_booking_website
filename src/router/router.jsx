@@ -12,6 +12,7 @@ import AddPackage from "../PrivatePage/AddPackage";
 import ManagePackage from "../PrivatePage/ManagePackage";
 import PackageDetails from "../PrivatePage/PackageDetails";
 import BookNow from "../PrivatePage/BookNow";
+import ErrorPage from "../pages/ErrorPage";
 
 
 
@@ -66,5 +67,8 @@ export const router = createBrowserRouter([
   
   
   ]
-  },
+  },{
+    path:'*',
+    element:<ErrorPage></ErrorPage>
+  }
 ]);

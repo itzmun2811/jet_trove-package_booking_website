@@ -21,7 +21,7 @@ const Header = () => {
   }
     return (
        <>
-<div className="navbar bg-base-100 shadow-sm">
+<div className="navbar w-11/12 mx-auto mb-6 p-0 bg-gradient-to-bl from-sky-700 to-white shadow-sm">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -34,8 +34,8 @@ const Header = () => {
       </ul>
     </div>
     <div className='flex justify-center items-center'>
-      <div className='rounded-full w-16 h-16 shadow-2xl overflow-hidden '>
-<img className=' w-full h-full object-cover' src={logo2} alt="" />
+      <div className='rounded-full  ml-4 w-16 h-16 shadow-2xl overflow-hidden '>
+<img className=' w-full h-full object-cover ml-2' src={logo2} alt="" />
       </div>
       
       < h1 className=" text-xl font-bold">Jet_Trove</h1>

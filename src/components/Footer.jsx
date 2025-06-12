@@ -4,7 +4,7 @@ import logo2 from "../assets/logo2.webp"
 const Footer = () => {
     return (
     
-    <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
+    <footer className="footer bg-gradient-to-bl from-sky-700 to-white footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
   
   <div className='flex justify-center items-center'>
         <div className='rounded-full w-16 h-16 shadow-2xl overflow-hidden '>

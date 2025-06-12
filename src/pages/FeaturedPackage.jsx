@@ -17,14 +17,16 @@ const FeaturedPackage = () => {
         console.log(error)})
      },[])
     return (
-<div>
-    <h2 className="text-3xl font-bold text-center mb-5">Featured Tour Package</h2>
+<div className=' w-11/12 mx-auto'>
+   <div className='shadow-lg p-2  rounded-2xl'>
+     <h2 className="text-3xl font-bold text-center mt-6 pt-8">Featured Tour Package</h2>
 <p className="text-center text-gray-600 mb-7 w-3/4 mx-auto">
 Embark on an unforgettable journey with our expertly curated travel experience. Guided by professionals, this tour offers comfort, adventure, and culture — all in one.
 </p>
 
+   </div>
 
-           <div className='w-11/12 mx-auto gap-6 mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+           <div className='bg-gradient-to-tr from-sky-600 to-white mx-auto gap-6 mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
 
         {
             packages.map(singlePackage=>(

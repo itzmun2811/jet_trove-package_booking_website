@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 
 const PackageDetails = () => {
     const {id}=useParams()
     const [packageDetails,setPackageDetails] =useState([]);
+    const navigate =useNavigate();
     console.log(id);
   
     useEffect(()=>{
@@ -18,6 +19,10 @@ const PackageDetails = () => {
     })
     
   },[id])
+   const handleBookNow =(id)=>{
+    navigate(`/bookNow/${id}`)
+
+   }
   
     return (
         <div>
@@ -47,9 +52,8 @@ const PackageDetails = () => {
             <p>Destination</p>
            </div>
            <p>Booking Count-</p>
-           <button className='btn'>
-            Book now!!!
-           </button>
+           <button onClick={()=>handleBookNow(id)} className='btn'>
+                  Book now!!! </button>
              </>
         }
       

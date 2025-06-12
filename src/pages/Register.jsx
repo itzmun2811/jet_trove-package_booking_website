@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 import { toast } from 'react-toastify';
 import { updateProfile } from 'firebase/auth';
-import { auth } from '../firebase/firebase.config';
+
 
 const Register = () => {
     const {createNewUser,googleSignIn} = use(AuthContext);

@@ -1,11 +1,9 @@
-import React, { use } from 'react';
-import img from "../assets/tour.jpg"
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import React, { use } from 'react';
 import { AuthContext } from '../context/AuthContext';
 
-const AddPackage = () => {
-    const {user} =use(AuthContext)
+const UpdatePackage = () => {
+ const {user} =use(AuthContext);
     
 
      const handleFormSubmit=(e)=>{
@@ -14,22 +12,24 @@ const AddPackage = () => {
         const formdata = new FormData(form);
         const packageData= Object.fromEntries(formdata.entries());
         console.log(packageData)
-        axios.post("http://localhost:3000/addPackage",packageData)
-        .then(res=>{
-            console.log(res.data)
-            toast.success('Your Tour Package added successfully!!')
-        })
-        .catch(error=>{
-            console.log(error)
-        })
+        // axios.update("http://localhost:3000/addPackage",packageData)
+        // .then(res=>{
+        //     console.log(res.data)
+        //     toast.success('Your Tour Package added successfully!!')
+        // })
+        // .catch(error=>{
+        //     console.log(error)
+        // })
      }
-    return (
+
+
+  return (
         <>
 
   <h1 className='text-xl font-bold text-center mt-8 '>Add Tour Package</h1>
       <div>
 <div className='w-[400px] mx-auto'>
-    <img className='w-3/4 mx-auto' src={img} alt="" />
+    <img className='w-3/4 mx-auto' src={""} alt="" />
 </div>
 
 <form onSubmit={handleFormSubmit}>
@@ -104,6 +104,10 @@ const AddPackage = () => {
             
         </>
     );
+
+
+
+    
 };
 
-export default AddPackage;
+export default UpdatePackage;

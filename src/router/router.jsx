@@ -11,6 +11,7 @@ import MyBookings from "../PrivatePage/MyBookings";
 import AddPackage from "../PrivatePage/AddPackage";
 import ManagePackage from "../PrivatePage/ManagePackage";
 import PackageDetails from "../PrivatePage/PackageDetails";
+import BookNow from "../PrivatePage/BookNow";
 
 
 
@@ -49,8 +50,10 @@ export const router = createBrowserRouter([
     {
       path:"/packageDetails/:id",
       element:<PackageDetails></PackageDetails>
-      
-
+    },
+    {
+      path:"/bookNow/:id",
+      element:<BookNow></BookNow>
     },
     {
       path:'/login',

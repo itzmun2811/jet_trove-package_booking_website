@@ -26,7 +26,7 @@ const UpdatePackage = () => {
   return (
         <>
 
-  <h1 className='text-xl font-bold text-center mt-8 '>Add Tour Package</h1>
+  <h1 className='text-xl font-bold text-center mt-8 '>Update Your Package</h1>
       <div>
 <div className='w-[400px] mx-auto'>
     <img className='w-3/4 mx-auto' src={""} alt="" />

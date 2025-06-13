@@ -2,11 +2,14 @@ import React from 'react';
 import Banner from './Banner';
 import FeaturedPackage from '../pages/FeaturedPackage';
 import Banner1 from './Banner1';
+import TopDestination from '../pages/TopDestination';
 
 const Home = () => {
     return (
         <>
+        <Banner1></Banner1>
     <FeaturedPackage></FeaturedPackage>
+    <TopDestination></TopDestination>
         </>
     );
 };

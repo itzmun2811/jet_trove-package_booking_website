@@ -13,6 +13,7 @@ import ManagePackage from "../PrivatePage/ManagePackage";
 import PackageDetails from "../PrivatePage/PackageDetails";
 import BookNow from "../PrivatePage/BookNow";
 import ErrorPage from "../pages/ErrorPage";
+import UpdatePackage from "../PrivatePage/UpdatePackage";
 
 
 
@@ -46,6 +47,11 @@ export const router = createBrowserRouter([
     {
       path:"/managePackage",
       element:<ManagePackage></ManagePackage>
+
+    },
+    {
+      path:"/updatePackage",
+      element:<UpdatePackage></UpdatePackage>
 
     },
     {

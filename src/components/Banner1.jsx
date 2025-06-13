@@ -5,15 +5,14 @@ import { NavLink } from 'react-router';
 const Banner1 = () => {
     return (
         <div
-  className="hero min-h-screen w-11/12 mx-auto "
+  className="hero relative min-h-screen w-11/12 mx-auto "
   style={{
     backgroundImage:
       `url(${banner})`,
   }}
 >
-    
-  <div className="hero-overlay"></div>
-  <div className=' p-12 mb-2 text-white mx-auto max-w-xl  px-4 flex gap-4'>
+      <div className=' absolute top-20 left-1/2 transform -translate-x-1/2 z-20
+      p-12 mb-2 text-white mx-auto max-w-xl  px-4 flex gap-4'>
   <input type="text" placeholder="Where You Want to GO"
    className="input input-bordered px-12 rounded-2xl shadow-sm
     py-3  border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-400 font-semibold text-gray-700"
@@ -27,6 +26,8 @@ const Banner1 = () => {
    
    '> GO</button>
     </div>
+  <div className="hero-overlay"></div>
+
   <div className="hero-content text-neutral-content text-center">
     <div className=" p-12">
  <h1 className='text-2xl font-bold p-4 '>

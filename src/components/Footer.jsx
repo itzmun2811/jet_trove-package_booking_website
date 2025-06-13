@@ -4,16 +4,27 @@ import logo2 from "../assets/logo2.webp"
 const Footer = () => {
     return (
     
-    <footer className="footer bg-gradient-to-bl from-sky-700 to-white footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
+    <footer className=" w-11/12 mx-auto footer bg-gradient-to-bl from-sky-700
+     to-white footer-horizontal footer-start bg-base-200 text-base-content rounded p-10">
   
-  <div className='flex justify-center items-center'>
+  <div className=''>
         <div className='rounded-full w-16 h-16 shadow-2xl overflow-hidden '>
   <img className=' w-full h-full object-cover' src={logo2} alt="" />
         </div>
         
         < h1 className=" text-xl font-bold">Jet_Trove</h1>
+        
       </div>
-  <nav className="grid grid-flow-col gap-4">
+
+      <div>
+        <p className="text-sm">
+        123 Travel Street<br />
+        Dhaka, Bangladesh 1205<br />
+        Phone: +880 1234 567890<br />
+        Email: info@jettrove.com
+      </p>
+      </div>
+  <nav className="grid grid-flow-row gap-4">
     <a className="link link-hover">About us</a>
     <a className="link link-hover">Contact</a>
     <a className="link link-hover">Terms & Conditions</a>
@@ -56,10 +67,15 @@ const Footer = () => {
       </a>
     </div>
   </nav>
-  <aside>
-    <p>Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
+  <nav>
+<aside >
+    <p>Copyright © {new Date().getFullYear()} - All right reserved by Jet_Trove Industries Ltd</p>
   </aside>
+  </nav>
+   
+  
 </footer>
+
     );
 };
 

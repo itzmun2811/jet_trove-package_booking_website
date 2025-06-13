@@ -14,6 +14,7 @@ import PackageDetails from "../PrivatePage/PackageDetails";
 import BookNow from "../PrivatePage/BookNow";
 import ErrorPage from "../pages/ErrorPage";
 import UpdatePackage from "../PrivatePage/UpdatePackage";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 
 
@@ -37,26 +38,26 @@ export const router = createBrowserRouter([
     },
     {
     path:"/mybookings",
-    element:<MyBookings></MyBookings>
+    element:<PrivateRoute><MyBookings></MyBookings></PrivateRoute>
     },
     {
       path:"/addPackage",
-      element:<AddPackage></AddPackage>
+      element: <PrivateRoute><AddPackage></AddPackage></PrivateRoute>
 
     },
     {
       path:"/managePackage",
-      element:<ManagePackage></ManagePackage>
+      element:<PrivateRoute><ManagePackage></ManagePackage></PrivateRoute>
 
     },
     {
       path:"/updatePackage",
-      element:<UpdatePackage></UpdatePackage>
+      element:<PrivateRoute><UpdatePackage></UpdatePackage></PrivateRoute>
 
     },
     {
       path:"/packageDetails/:id",
-      element:<PackageDetails></PackageDetails>
+      element:<PrivateRoute><PackageDetails></PackageDetails></PrivateRoute>
     },
     {
       path:"/bookNow/:id",

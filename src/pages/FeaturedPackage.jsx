@@ -19,18 +19,18 @@ const FeaturedPackage = () => {
     return (
 <div className=' w-11/12 mx-auto'>
    <div className='shadow-lg p-2  rounded-2xl'>
-     <h2 className="text-3xl font-bold text-center mt-6 pt-8">Featured Tour Package</h2>
+     <h2 className="text-3xl font-bold text-center mt-4 pt-6 text-sky-800">Featured Tour Package</h2>
 <p className="text-center text-gray-600 mb-7 w-3/4 mx-auto">
 Embark on an unforgettable journey with our expertly curated travel experience. Guided by professionals, this tour offers comfort, adventure, and culture — all in one.
 </p>
 
    </div>
 
-           <div className='bg-gradient-to-tr from-sky-600 to-white mx-auto gap-6 mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+           <div className=' bg-gradient-to-tr from-sky-600 to-white mx-auto gap-6 mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
 
         {
             packages.map(singlePackage=>(
- <div className=" m-12 p-6 card bg-base-200 shadow-xl rounded-xl  hover:scale-105">
+  <div className=" m-8 p-6 card bg-base-200  shadow-xl rounded-xl  hover:scale-105">
   <figure className='flex flex-col p-6'>
  <h2 className="card-title  shadow-2xl  pb-2
  text-xl font-semibold text-center my-2
@@ -74,7 +74,7 @@ Embark on an unforgettable journey with our expertly curated travel experience. 
             </div>
 
 
-            <button className='btn w-full' onClick={()=>{navigate('/allPackages')}}>Show All</button>
+            <button className='btn flex items-center justify-center btn-info mx-auto text-center mt-4 mb-5' onClick={()=>{navigate('/allPackages')}}>Show All</button>
             </div>
         
     );

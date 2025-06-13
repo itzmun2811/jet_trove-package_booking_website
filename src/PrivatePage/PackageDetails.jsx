@@ -25,40 +25,48 @@ const PackageDetails = () => {
    }
   
     return (
-        <div>
-     {
-        <> 
-         <div>
-        <h2 className="card-title">Tour Name-{packageDetails?.['tour-name']}</h2>
-        <img src={packageDetails?.image} alt="" />
-        </div>
-            <div> Guide Info:
-                <div>
-                      <span>{packageDetails?.['guide-name']}</span>
-                       <span>{packageDetails?.contact}</span>
+        <div className='w-11/12  mx-auto max-w-6xl '>
+      {
+          <div className="card lg:card-side bg-base-100 shadow-sm mt-8 mb-8">
+  <figure>
+    <img
+      src={packageDetails.image}
+      alt="Album" />
+  </figure>
+  <div className="card-body">
+
+    <div className=''> 
+        
+                <div className='grid'>
+                    <div> 
+<img className='w-24 h-24 rounded-full' src={packageDetails?.['guide-photo']} alt="" />
+                    </div>
+                    
+                      <span>Name-{packageDetails?.['guide-name']}</span>
+                       <span>Contact No-{packageDetails?.contact}</span>
                 </div>
-                <img src={packageDetails?.['guide-photo']} alt="" />
+                  <h2 className="card-title">Tour Name-{packageDetails?.['tour-name']}</h2>
+       <div className=''>
+
+            <h1>Duration-{packageDetails.duration}</h1>
+            <h1>Price-{packageDetails.price}</h1>
+            <h1>Full Description -{packageDetails.description}</h1>
+           </div>          
                
 
            </div>
-           <div>
-            <h1>Duration-</h1>
-            <h1>Price-</h1>
-            <h1>Full Description -</h1>
+            <div>
+            <h1>Departure Location-{packageDetails.location}</h1>
+            <p>Date-{packageDetails.date}</p>
+            <p>Destination-{packageDetails.destination}</p>
            </div>
-           <div>
-            <h1>Departure Location-</h1>
-            <p>Date</p>
-            <p>Destination</p>
-           </div>
-           <p>Booking Count-</p>
-           <button onClick={()=>handleBookNow(id)} className='btn'>
+           <p>Booking Count-{packageDetails.bookingCount}</p>
+           <button onClick={()=>handleBookNow(id)} className='btn btn-info'>
                   Book now!!! </button>
-             </>
-        }
-      
-     
-          
+        
+    
+  </div>
+</div>}
         </div>
     );
 };

@@ -1,42 +1,68 @@
-import React from 'react';
+import React, { use } from 'react';
 import { useLoaderData, useNavigate } from 'react-router';
+import { AuthContext } from '../context/AuthContext';
 
 const AllPackages = () => {
 
     const data = useLoaderData();
-    const navigate=useNavigate()
+    const {user}=use(AuthContext);
+    const navigate=useNavigate();
     console.log(data)
 
     const handleDetails=(id)=>{
-     navigate(`/packageDetails/${id}`)
+        if(user){
+ navigate(`/packageDetails/${id}`)
+        }
+        else{
+    navigate('/login')
+        }
+    
      console.log(id)
     }
     return (
-        <div>
-            <p>All packages</p>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+        <div className='w-11/12 mx-auto'>
+ <div className='shadow-lg p-2  rounded-2xl mt-4'>
+     <h2 className="text-3xl font-bold text-center mt-4 pt-6 text-sky-800">
+        All Packages</h2>
+<p className="text-center text-gray-600 mb-2 w-3/4 mx-auto">
+From beach escapes to mountain retreats, explore our hottest travel deals at unbeatable prices. Only available for a short time — act fast before they're gone!
+</p>
+
+   </div>
+
+            <div className=' mt-4 gap-6 mb-8 items-center justify-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
 {
 
     data.map((info)=>(
-    <div className="card bg-base-100 w-96 shadow-sm">
+    <div className="card w-96 shadow-sm bg-gradient-to-tl from-sky-600 to-white">
   <figure className="px-10 pt-10">
     <img
       src={info.image}
       alt="Shoes"
       className="rounded-xl" />
   </figure>
+  <div >
   <div className="card-body items-center text-center">
-    <h2 className="card-title">{info?.['tour-name']}</h2>
-    <div className='flex'>
+    <h2 className="card-title flex justify-center items-center">{info?.['tour-name']}</h2>
+    
+    <div className='shadow-2xl rounded-2xl bg-white px-7 flex flex-col justify-center items-center'>
+    <div className='flex gap-4 items-center p-4 justify-center'> <h1 className='text-xl text-sky-700 font-bold '>Guide -</h1>
+         
+         <div>
+            <img className='w-12 h-12 rounded-full' src={info?.['guide-photo']} alt="" />
           <h2 className="card-title">{info?.['guide-name']}</h2>
-        <img src={info?.['guide-photo']} alt="" />
+            </div>
+       
     </div>
-   <h2 className="card-title">{info?.duration}</h2>
-    <h2 className="card-title">{info?.price}</h2>
-    <h2 className="card-title">{info?.date}</h2>
+   <h2 className="card-title"><span className='text-sky-700 text-xl font-bold'>Duration-</span>{info?.duration}</h2>
+    <h2 className="card-title"><span className='text-sky-700 text-xl font-bold'>Price-</span> {info?.price}</h2>
+    <h2 className="card-title"><span className='text-sky-700 text-xl font-bold pb-2'>Date</span>{info?.date}</h2>
     <div className="card-actions">
-      <button onClick={()=>handleDetails(info._id)} className="btn btn-primary">View Details</button>
+      <button onClick={()=>handleDetails(info._id)} className="btn pb-4 mb-4 btn-primary">View Details</button>
     </div>
+    </div>
+    </div>
+
   </div>
 </div>
     ))

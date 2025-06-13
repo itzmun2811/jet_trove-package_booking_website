@@ -11,14 +11,18 @@ import 'swiper/css/scrollbar';
 
 const TopDestination = () => {
     return (
- <div className='w-11/12 mx-auto max-w-6xl pt-8 mt-8 mb-8'>
-    <div className='shadow-2xl rounded-2xl p-2'>
- <h1 className='text-3xl font-bold text-center pb-4'>Top Destinations</h1>
-      <p className="text-center  text-gray-600 pb-8">
+ <div className='w-11/12 mx-auto p-12 pt-8 mt-8 mb-4 '>
+
+ <div className='shadow-lg p-2  rounded-2xl'>
+     <h2 className="text-3xl font-bold text-center mt-6 pt-8 text-sky-800">Top Destinations</h2>
+<p className="text-center text-gray-600 mb-7 w-3/4 mx-auto">
   Ready to chase unforgettable moments? Our top destinations are packed with thrilling experiences, natural wonders, and hidden gems waiting to be discovered.
 </p>
-    </div>
-     
+
+   </div>
+
+
+   
 
 
 <Swiper

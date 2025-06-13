@@ -4,8 +4,11 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../context/AuthContext';
 
+
 const AddPackage = () => {
     const {user} =use(AuthContext)
+   
+     
     
 
      const handleFormSubmit=(e)=>{
@@ -13,10 +16,15 @@ const AddPackage = () => {
         const form= e.target;
         const formdata = new FormData(form);
         const packageData= Object.fromEntries(formdata.entries());
-        console.log(packageData)
-        axios.post("http://localhost:3000/addPackage",packageData)
+        console.log(packageData);
+        const newPackageData ={
+            ...packageData,
+            bookingCount:0,
+        }
+        console.log(newPackageData)
+        axios.post("http://localhost:3000/addPackage",newPackageData)
         .then(res=>{
-            console.log(res.data)
+            console.log(res.data.data)
             toast.success('Your Tour Package added successfully!!')
         })
         .catch(error=>{
@@ -80,7 +88,7 @@ const AddPackage = () => {
             </div>
           <div className='flex gap-4'>
                 <label className="label">Guide Name</label>
-                <input type="text" name='guide-name' className="input" defaultValue={user.name} />
+                <input type="text" name='guide-name' className="input" defaultValue={user.displayName} />
             </div>
           <div className='flex gap-4'>
                 <label className="label">Guide Photo</label>

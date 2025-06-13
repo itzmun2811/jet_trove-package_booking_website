@@ -63,11 +63,7 @@ const Banner = () => {
         Whether you're planning your first trip or 
  your next big adventure, JetTrove is your trusted travel companion. <br />Browse curated packages, connect with expert guides, and book your journey — all in one place.
       </p>
-   <button className='btn btn-info bg-white text-center'>
-   <NavLink to='/allPackages'>Explore Now!!
-  </NavLink>
-
-  </button>
+  
     </div>
   </div>
 </div>

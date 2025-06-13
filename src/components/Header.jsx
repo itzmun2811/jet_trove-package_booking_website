@@ -2,8 +2,10 @@ import React, { use } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { Link, Links, NavLink } from 'react-router';
 import logo2 from "../../src/assets/logo2.webp"
+import { MdModeNight } from "react-icons/md";
+import { MdOutlineLightMode } from "react-icons/md";
 
-const Header = () => {
+const Header = ({ onToggleTheme, theme }) => {
   const {user,logOut} =use(AuthContext);
   console.log(user?.photoURL)
 
@@ -80,6 +82,10 @@ const Header = () => {
     
   
   }
+  
+       <button onClick={onToggleTheme} className='bg-sky-700  ml-2'> 
+       {theme === "light" ? <MdModeNight size={30} /> : <MdOutlineLightMode size={30} />}
+      </button>
   </div>
 
 

@@ -93,7 +93,7 @@ const UpdatePackage = () => {
             </div>
       
         </fieldset>
-        <button className='btn btn-neutral w-1/2' type="submit">add package</button>
+        <button className='btn btn-neutral w-1/2' type="submit">update</button>
       </div>
     </div>
   </div>

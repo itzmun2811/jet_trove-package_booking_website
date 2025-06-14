@@ -1,6 +1,8 @@
 import React, { use } from 'react';
 import { useLoaderData, useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
+import { FiSearch } from 'react-icons/fi';
+import { Flip, Hinge, JackInTheBox, Rotate } from 'react-awesome-reveal';
 
 const AllPackages = () => {
 
@@ -30,16 +32,39 @@ From beach escapes to mountain retreats, explore our hottest travel deals at unb
 
    </div>
 
-            <div className=' mt-4 gap-6 mb-8 items-center justify-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+       <div className="flex items-center justify-center mx-auto 
+       bg-white rounded-full mt-6 mb-6
+       shadow-xl p-2 border-1 border-gray-400">
+      <input
+        type="text"
+        placeholder="Search for desired Package "
+        className=" w-3/4 px-5 py-2 text-gray-700 
+        bg-transparent focus:outline-none"
+      />
+      <button
+        type="submit"
+        className="flex items-center gap-1 bg-sky-600 text-white
+         px-3 py-2 rounded-full hover:bg-sky-700"
+      >
+        <div className="w-6 h-6" >
+        <span className="font-medium"><FiSearch size={25}></FiSearch></span>
+        </div>
+      </button>
+    </div>
+
+            <div className=' mt-4 gap-6 mb-8  mx-auto items-center justify-center
+             grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
 {
 
     data.map((info)=>(
-    <div className="card w-96 shadow-sm bg-gradient-to-tl from-sky-600 to-white">
-  <figure className="px-10 pt-10">
+   <JackInTheBox>
+     <div className="card w-72 mt-8  shadow-sm bg-gradient-to-tl
+      from-sky-600 to-white">
+  <figure className="px-6 pt-10">
     <img
       src={info.image}
       alt="Shoes"
-      className="rounded-xl" />
+      className="rounded-xl w-52 h-52 object-contain" />
   </figure>
   <div >
   <div className="card-body items-center text-center">
@@ -65,6 +90,7 @@ From beach escapes to mountain retreats, explore our hottest travel deals at unb
 
   </div>
 </div>
+   </JackInTheBox>
     ))
     
     

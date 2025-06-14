@@ -27,7 +27,10 @@ const MainLayout = () => {
     return (
         <div>
             <Header onToggleTheme={toggleTheme} theme={theme}></Header>
-            <Outlet></Outlet>
+            <div  className='max-w-6xl mx-auto '>
+<Outlet></Outlet>
+            </div>
+
             <Footer></Footer>
 
         </div>

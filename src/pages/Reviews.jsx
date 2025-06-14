@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bounce, Slide } from 'react-awesome-reveal';
+import { Bounce, Fade, Flip, Roll, Slide } from 'react-awesome-reveal';
 import { FiStar } from "react-icons/fi";
 
 const Reviews = () => {

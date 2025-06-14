@@ -20,8 +20,15 @@ const PackageDetails = () => {
     
   },[id])
    const handleBookNow =(id)=>{
-    navigate(`/bookNow/${id}`)
-
+    
+           axios.patch(`http://localhost:3000/addPackage/${id}`)
+            .then(result=>{
+                console.log("booking count updated",result.data)
+            })
+            .catch(error=>{
+                console.log(error)
+            })
+            navigate(`/bookNow/${id}`)
    }
   
     return (
@@ -50,7 +57,7 @@ const PackageDetails = () => {
 
             <h1>Duration-{packageDetails.duration}</h1>
             <h1>Price-{packageDetails.price}</h1>
-            <h1>Full Description -{packageDetails.description}</h1>
+            <h1>Full Description - <span className='w-2/5'>{packageDetails.details}</span></h1>
            </div>          
                
 

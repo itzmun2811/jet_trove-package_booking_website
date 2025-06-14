@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Bounce, JackInTheBox, Rotate, Zoom } from 'react-awesome-reveal';
 import { Navigate, useNavigate } from 'react-router';
 
 const FeaturedPackage = () => {
@@ -17,7 +18,7 @@ const FeaturedPackage = () => {
         console.log(error)})
      },[])
     return (
-<div className=' w-11/12 mx-auto'>
+<div className='  mx-auto'>
    <div className='shadow-lg p-2  rounded-2xl'>
      <h2 className="text-3xl font-bold text-center mt-4 pt-6 text-sky-800">Featured Tour Package</h2>
 <p className="text-center text-gray-600 mb-7 w-3/4 mx-auto">
@@ -26,23 +27,28 @@ Embark on an unforgettable journey with our expertly curated travel experience. 
 
    </div>
 
-           <div className=' bg-gradient-to-tr from-sky-600 to-white mx-auto gap-6 mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+           <div className=' bg-gradient-to-tr from-sky-600 to-white
+            mx-auto gap-6 mt-10 grid grid-cols-1 md:grid-cols-2
+             lg:grid-cols-3 items-center justify-center flex-col '>
 
         {
             packages.map(singlePackage=>(
-  <div className=" m-8 p-6 card bg-base-200  shadow-xl rounded-xl  hover:scale-105">
-  <figure className='flex flex-col p-6'>
- <h2 className="card-title  shadow-2xl  pb-2
- text-xl font-semibold text-center my-2
+
+            <Rotate>
+ <div className=" m-10 p-6 w-80  card bg-base-200  shadow-xl rounded-xl 
+  hover:scale-105">
+  <figure className='flex flex-col p-4'>
+ <h2 className="card-title  shadow-xl  pb-1
+ text-xl font-semibold text-center my-1
  ">{singlePackage.tourName}</h2>
-    <img className='w-full h-46 object-cover rounded-t-xl shadow-lg
+    <img className='w-40 h-40 object-cover rounded-t-xl shadow-lg
     '
       src={singlePackage.tourImage}
       alt="Movie" />
   </figure>
 
-     <div className='p-6 rounded-xl shadow-lg flex  items-center justify-center'>
-  <div className='"flex items-center gap-4 p-6'>
+     <div className='p-4 rounded-xl shadow-lg flex  items-center justify-center'>
+  <div className='"flex items-center gap-4 p-4'>
      <img  className='
      w-16 h-16 rounded-full object-cover 
      
@@ -65,6 +71,8 @@ Embark on an unforgettable journey with our expertly curated travel experience. 
 
    
   </div>
+            </Rotate>
+ 
 
 
             ))

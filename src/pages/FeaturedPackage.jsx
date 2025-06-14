@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Bounce, JackInTheBox, Rotate, Zoom } from 'react-awesome-reveal';
+import { Bounce, Fade, JackInTheBox, Rotate, Zoom } from 'react-awesome-reveal';
 import { Navigate, useNavigate } from 'react-router';
 
 const FeaturedPackage = () => {
@@ -34,7 +34,7 @@ Embark on an unforgettable journey with our expertly curated travel experience. 
         {
             packages.map(singlePackage=>(
 
-            <Rotate>
+            <Fade>
  <div className=" m-10 p-6 w-80  card bg-base-200  shadow-xl rounded-xl 
   hover:scale-105">
   <figure className='flex flex-col p-4'>
@@ -71,7 +71,7 @@ Embark on an unforgettable journey with our expertly curated travel experience. 
 
    
   </div>
-            </Rotate>
+            </Fade>
  
 
 

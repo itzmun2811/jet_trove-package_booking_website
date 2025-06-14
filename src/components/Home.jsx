@@ -3,7 +3,8 @@ import Banner from './Banner';
 import FeaturedPackage from '../pages/FeaturedPackage';
 import Banner1 from './Banner1';
 import TopDestination from '../pages/TopDestination';
-import ExclusiveDeals from '../pages/ExclusiveDeals';
+import ExclusiveDeals from '../pages/Reviews';
+import Reviews from '../pages/Reviews';
 
 const Home = () => {
     return (
@@ -11,7 +12,7 @@ const Home = () => {
         <Banner1></Banner1>
         <TopDestination></TopDestination>
     <FeaturedPackage></FeaturedPackage>
-    <ExclusiveDeals></ExclusiveDeals>
+    <Reviews></Reviews>
     
         </>
     );

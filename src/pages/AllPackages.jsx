@@ -8,6 +8,7 @@ import axios from 'axios';
 const AllPackages = () => {
 
     const loadedData= useLoaderData();
+    console.log(loadedData)
     const [data,setData] =useState(loadedData)
     const {user}=use(AuthContext);
     const[searchValue,setSearchValue] =useState('');
@@ -26,7 +27,8 @@ const AllPackages = () => {
     }
     const handleSearchText =()=>{
         console.log('hello')
-        axios.get(`http://localhost:3000/addPackage?search=${searchValue}`)
+        if(searchValue){
+            axios.get(`http://localhost:3000/addPackageBySearch?search=${searchValue}`)
         .then(result=>{
             setData(result.data)
             console.log(result.data)
@@ -34,6 +36,10 @@ const AllPackages = () => {
         .catch(error=>{
             console.log(error)
         })
+        }
+        else{
+            setData(loadedData)
+        }
     }
     return (
         <div className='w-11/12 mx-auto'>
@@ -70,10 +76,11 @@ From beach escapes to mountain retreats, explore our hottest travel deals at unb
 
             <div className=' mt-4 gap-6 mb-8  mx-auto items-center justify-center
              grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-{
 
-    data.map((info)=>(
-   <Zoom>
+{
+  Array.isArray(data) ? (
+data.map((info) => (
+    <Zoom>
      <div className="card w-72 mt-8  shadow-sm bg-gradient-to-tl
       from-sky-600 to-white">
   <figure className="px-6 pt-10">
@@ -107,11 +114,24 @@ From beach escapes to mountain retreats, explore our hottest travel deals at unb
   </div>
 </div>
    </Zoom>
-    ))
+  ))): <p>hello</p> 
+}
+
+
+
+
+
+
+
+        
+    
+
+
+   
     
     
     
-    }
+    
  
 
 

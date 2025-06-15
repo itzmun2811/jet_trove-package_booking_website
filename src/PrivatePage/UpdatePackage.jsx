@@ -1,25 +1,41 @@
 import axios from 'axios';
-import React, { use } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
+import { useParams } from 'react-router';
+import { toast } from 'react-toastify';
 
 const UpdatePackage = () => {
  const {user} =use(AuthContext);
+ const {id} =useParams()
+ const[formData,setFormData]=useState([]);
     
-
-     const handleFormSubmit=(e)=>{
+  
+  useEffect(()=>{
+    axios.get(`http://localhost:3000/addPackage/${id}`)
+    .then(result=>{
+        console.log(result.data)
+        setFormData(result.data)
+    })
+    .catch(error=>{
+        console.log(error)
+    })
+    
+  },[id])
+  
+     const handleUpdate=(e,id)=>{
         e.preventDefault();
         const form= e.target;
         const formdata = new FormData(form);
-        const packageData= Object.fromEntries(formdata.entries());
-        console.log(packageData)
-        // axios.update("http://localhost:3000/addPackage",packageData)
-        // .then(res=>{
-        //     console.log(res.data)
-        //     toast.success('Your Tour Package added successfully!!')
-        // })
-        // .catch(error=>{
-        //     console.log(error)
-        // })
+        const updatedData= Object.fromEntries(formdata.entries());
+          
+        axios.put(`http://localhost:3000/addPackage/${id}`,updatedData)
+        .then(result=>{
+            console.log(result.data)
+            toast.success('Your Tour Package updated successfully!!')
+        })
+        .catch(error=>{
+            console.log(error);
+        })
      }
 
 
@@ -32,7 +48,7 @@ const UpdatePackage = () => {
     <img className='w-3/4 mx-auto' src={""} alt="" />
 </div>
 
-<form onSubmit={handleFormSubmit}>
+<form onSubmit={(e)=>handleUpdate(e,formData._id)}>
 <div className="bg-base-200 w-11/12 mx-auto text-center">
 
    
@@ -44,43 +60,53 @@ const UpdatePackage = () => {
 
             <div className='flex gap-4 items-center'>
                 <label className="label">Tour Name -</label>
-               <input type="text" name='tour-name' className="input" placeholder="Tour Name" />
+               <input type="text" name='tour-name' className="input"
+             defaultValue={formData['tour-name']} />
             </div>
             <div className='flex gap-4 items-center '>
                 <label className="label">Image</label>
-               <input type="text" name='image' className="input" placeholder="image" />
+               <input type="text" name='image' className="input"
+                defaultValue={formData.image} />
             </div>
             <div className='flex gap-4'>
                 <label className="label">Duration</label>
-               <input type="text" name='duration' className="input" placeholder="duration" />
+               <input type="text" name='duration' className="input"
+             defaultValue={formData.duration} />
             </div>
             <div className='flex gap-4'>
                 <label className="label">Departure Location</label>
-               <input type="text" name='location' className="input" placeholder="departure-Location" />
+               <input type="text" name='location' className="input" 
+             defaultValue={formData.location} />
             </div>
             <div className='flex gap-4'>
                 <label className="label">Destination</label>
-               <input type="text" name='destination' className="input" placeholder="destination" />
+               <input type="text" name='destination' className="input" 
+                defaultValue={formData.destination}  />
             </div>
             <div className='flex gap-4'>
                 <label className="label">price</label>
-               <input type="text" name='price' className="input" placeholder="price" />
+               <input type="text" name='price' className="input"
+             defaultValue={formData.price}  />
             </div>
           <div className='flex gap-4'>
                 <label className="label">Departure Date</label>
-                <input type="text" name='date' className="input" placeholder="departure-date" />
+                <input type="text" name='date' className="input"
+                  defaultValue={formData.date}  />
             </div>
           <div className='flex gap-4'>
                 <label className="label">Package Details</label>
-                <input type="text" name='details' className="input" placeholder="Package-details" />
+                <input type="text" name='details' className="input" 
+                 defaultValue={formData.details}  />
             </div>
           <div className='flex gap-4'>
                 <label className="label">Contact No</label>
-                <input type="text" name='contact' className="input" placeholder="contact-no" />
+                <input type="text" name='contact' className="input" 
+                 defaultValue={formData.contact}  />
             </div>
           <div className='flex gap-4'>
                 <label className="label">Guide Name</label>
-                <input type="text" name='guide-name' className="input" defaultValue={user.name} />
+                <input type="text" name='guide-name' className="input"
+                 defaultValue={user.displayName} />
             </div>
           <div className='flex gap-4'>
                 <label className="label">Guide Photo</label>

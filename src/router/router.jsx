@@ -51,7 +51,7 @@ export const router = createBrowserRouter([
 
     },
     {
-      path:"/updatePackage",
+      path:"/updatePackage/:id",
       element:<PrivateRoute><UpdatePackage></UpdatePackage></PrivateRoute>
 
     },

@@ -3,37 +3,49 @@ import {  useParams } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { MdTour } from 'react-icons/md';
 
 
 const BookNow = () => {
     const {id}=useParams();
     const {user}=use(AuthContext);
-    const[bookInfo,setInfo] =useState([]);
+    const[bookInfo,setBookInfo] =useState([]);
     const date= new Date().toLocaleDateString();
 
     useEffect(()=>{
     axios.get(`http://localhost:3000/addPackage/${id}`)
     .then(result=>{
         console.log(result.data)
-        setInfo(result.data);
+        setBookInfo(result.data);
     })
     .catch(error=>{
         console.log(error)
     })
     
   },[id])
-  console.log(bookInfo)
 
+console.log(bookInfo)
     const handleBooking=(e)=>{
        e.preventDefault();
        const form=e.target;
        const formdata = new FormData(form);
         const Bookings= Object.fromEntries(formdata.entries());
 
+        
+
          const newBookings={
             ...Bookings,
-            status:'pending'
+            status:'pending',
+            tourId:bookInfo._id ,
+            guideName:bookInfo['guide-name'],
+            guideEmail:bookInfo['guide-email'],
+            guideContact:bookInfo.contact,
+            location:bookInfo.location,
+            destination:bookInfo.destination,
+            
          }
+
+         console.log(newBookings)
         axios.post("http://localhost:3000/booking",newBookings)
         .then(result=>{
             console.log(result.data)
@@ -64,29 +76,34 @@ const BookNow = () => {
 
             <div className='flex gap-4 items-center'>
                 <label className="label">Tour Name -</label>
-               <input type="text" name='tour-name' className="input" readOnly defaultValue={bookInfo['tour-name']} />
+               <input type="text" name='tour-name' className="input"
+                readOnly defaultValue={bookInfo['tour-name']} />
             </div>
             <div className='flex gap-4'>
                 <label className="label">price</label>
-               <input type="text" name='price' className="input" readOnly defaultValue={bookInfo.price} />
+               <input type="text" name='price' className="input" 
+               readOnly defaultValue={bookInfo.price} />
             </div>
           <div className='flex gap-4'>
                 <label className="label">Booking Date</label>
-                <input type="text" name='date' className="input" defaultValue={date} />
+                <input type="text" name='date' className="input" 
+                defaultValue={date} />
             </div>
          
      
           <div className='flex gap-4'>
                 <label className="label">Buyer Name</label>
-                <input type="text" name='guide-name' className="input" defaultValue={user?.displayName}/>
+                <input type="text" name='buyer-name' 
+                className="input" defaultValue={user?.displayName}/>
             </div>
           <div className='flex gap-4'>
                 <label className="label">Buyer Email</label>
-                <input type="text" name='guide-email' className="input" defaultValue={user?.email} />
+                <input type="text" name='buyer-email'
+                 className="input" defaultValue={user?.email} />
             </div>
           <fieldset className="fieldset">
   <legend className="fieldset-legend text-start">Special Note</legend>
-  <textarea className="textarea h-24" placeholder="special note"></textarea>
+  <textarea className="textarea h-24" name='note' placeholder="special note"></textarea>
  
 </fieldset>
       

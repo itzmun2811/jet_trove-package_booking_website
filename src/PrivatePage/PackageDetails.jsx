@@ -1,15 +1,23 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
+import { AuthContext } from '../context/AuthContext';
 
 const PackageDetails = () => {
     const {id}=useParams()
     const [packageDetails,setPackageDetails] =useState([]);
+    const{user}=use(AuthContext)
     const navigate =useNavigate();
     console.log(id);
+
+    
   
     useEffect(()=>{
-    axios.get(`http://localhost:3000/addPackage/${id}`)
+    axios.get(`http://localhost:3000/addPackage/${id}`,{
+         headers:{
+            authorization :`Bearer ${user.accessToken}`
+        }
+    })
     .then(result=>{
         console.log(result.data)
         setPackageDetails(result.data);
@@ -18,7 +26,7 @@ const PackageDetails = () => {
         console.log(error)
     })
     
-  },[id])
+  },[id,user.accessToken])
    const handleBookNow =(id)=>{
     
            axios.patch(`http://localhost:3000/addPackage/${id}`)
@@ -68,8 +76,12 @@ const PackageDetails = () => {
             <p>Destination-{packageDetails.destination}</p>
            </div>
            <p>Booking Count-{packageDetails.bookingCount}</p>
-           <button onClick={()=>handleBookNow(id)} className='btn btn-info'>
+
+           {user.email !== packageDetails['guide-email'] && (
+  <button onClick={()=>handleBookNow(id)} className='btn btn-info'>
                   Book now!!! </button>
+)}
+           
         
     
   </div>

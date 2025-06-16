@@ -9,8 +9,11 @@ const MyBookings = () => {
 
   useEffect(()=>{
 
-     if (!user?.email) return; 
-     axios.get(`http://localhost:3000/bookingByEmail?email=${user.email}`)
+     axios.get(`http://localhost:3000/booking?email=${user.email}`,{
+        headers:{
+            authorization :`Bearer ${user.accessToken}`
+        }
+     })
             .then(result=>{
                 console.log(result.data)
                 setBooking(result.data)

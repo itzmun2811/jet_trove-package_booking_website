@@ -22,7 +22,9 @@ const AddPackage = () => {
             bookingCount:0,
         }
         console.log(newPackageData)
-        axios.post("http://localhost:3000/addPackage",newPackageData)
+        axios.post("http://localhost:3000/addPackage",newPackageData
+           
+        )
         .then(res=>{
             console.log(res.data.data)
             toast.success('Your Tour Package added successfully!!')

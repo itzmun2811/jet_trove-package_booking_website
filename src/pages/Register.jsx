@@ -1,5 +1,5 @@
 import React, { use } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 import { toast } from 'react-toastify';
 import { updateProfile } from 'firebase/auth';
@@ -7,6 +7,8 @@ import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
     const {createNewUser,googleSignIn} = use(AuthContext);
+    const navigate =useNavigate();
+    const location =useLocation();
 
     const handleSubmit =(e)=>{
       e.preventDefault();
@@ -18,6 +20,7 @@ const Register = () => {
       console.log(name,email,photo,password);
        createNewUser(email,password)
        .then(result=>{
+
         console.log(result.user)
         toast.success("registered successfully")
         updateProfile(result.user,{
@@ -30,13 +33,20 @@ const Register = () => {
         .catch((error)=>{
       console.log(error)
         })
+      navigate(location?.state || '/')
        })
-       .catch(error=>{
-        console.log(error)
-        toast.error(error.message)
-       })
+       .catch((error)=>{
+        console.log(error)})
+        .then(()=>{
+    navigate(location?.state );
+})
 
-      
+
+
+
+       
+
+    
 
     }
 

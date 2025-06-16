@@ -1,9 +1,11 @@
 import React, { use } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 
 const Login = () => {
     const {signInUser,googleSignIn}=use(AuthContext);
+     const navigate =useNavigate();
+    const location =useLocation();
 
 const handleLogin =(e)=>{
       e.preventDefault();
@@ -19,7 +21,7 @@ const handleLogin =(e)=>{
        .catch(error=>{
         console.log(error)
        })
-
+      navigate(location?.state || '/')
       
 
     }

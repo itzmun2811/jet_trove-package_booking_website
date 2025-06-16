@@ -41,13 +41,13 @@ const Banner1 = () => {
     "From Dreaming to Departing - We've Got You Covered"
     )
     .callFunction(() => {
-        console.log('String typed out!');
+        // console.log('String typed out!');
       })
       .pauseFor(2000)
       .deleteAll()
     
       .callFunction(() => {
-        console.log('All strings were deleted');
+        // console.log('All strings were deleted');
       })
       .start();
   }}

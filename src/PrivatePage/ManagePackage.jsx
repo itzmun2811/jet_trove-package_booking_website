@@ -8,9 +8,14 @@ const ManagePackage = () => {
      const {user} =use(AuthContext);
      const[info,setInfo] =useState([]);
      const navigate =useNavigate();
+     console.log(user.accessToken)
 
         useEffect(()=>{
-            axios.get(`http://localhost:3000/addPackageByEmail?email=${user.email}`)
+            axios.get(`http://localhost:3000/addPackageByEmail?email=${user.email}`,{
+                headers:{
+                    authorization:`Bearer ${user.accessToken}`
+                }
+            })
             .then(result=>{
                 console.log(result)
                 setInfo(result.data)

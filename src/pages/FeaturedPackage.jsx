@@ -18,10 +18,11 @@ const FeaturedPackage = () => {
         console.log(error)})
      },[])
     return (
-<div className='  mx-auto'>
-   <div className='shadow-lg p-2  rounded-2xl'>
-     <h2 className="text-3xl font-bold text-center mt-4 pt-6 text-sky-800">Featured Tour Package</h2>
-<p className="text-center text-gray-600 mb-7 w-3/4 mx-auto">
+<div className='mx-auto'>
+   <div className='shadow-lg p-2 rounded-2xl'>
+     <h2 className="lg:text-3xl md:text-2xl text-lg font-bold
+      text-center mt-1 md:mt-2 lg:mt-4 pt-6 text-sky-800">Featured Tour Package</h2>
+<p className="text-center text-gray-600 mb-7 w-2/6 md:w-3/4 lg:w-3/4 mx-auto">
 Embark on an unforgettable journey with our expertly curated travel experience. Guided by professionals, this tour offers comfort, adventure, and culture — all in one.
 </p>
 
@@ -35,7 +36,8 @@ Embark on an unforgettable journey with our expertly curated travel experience. 
             packages.map(singlePackage=>(
 
             <Fade>
- <div className=" m-10 p-6 w-80  card bg-base-200  shadow-xl rounded-xl 
+ <div className=" m-6 md:m-8 lg:m-10 p-6 w-64 md:w-72 lg:w-80 
+  card bg-base-200  shadow-xl rounded-xl 
   hover:scale-105">
   <figure className='flex flex-col p-4'>
  <h2 className="card-title  shadow-xl  pb-1

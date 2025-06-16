@@ -22,7 +22,12 @@ const AddPackage = () => {
             bookingCount:0,
         }
         console.log(newPackageData)
-        axios.post("http://localhost:3000/addPackage",newPackageData
+        axios.post("http://localhost:3000/addPackage",newPackageData,
+        //     {
+        //     headers:{
+        //         authorization:`Bearer ${user.accessToken}`
+        //     }
+        // }
            
         )
         .then(res=>{

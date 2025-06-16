@@ -4,8 +4,8 @@ import logo2 from "../assets/logo2.webp"
 const Footer = () => {
     return (
     
-    <footer className=" w-11/12 mx-auto footer bg-gradient-to-bl from-sky-700
-     to-white footer-horizontal footer-start bg-base-200 text-base-content rounded p-10">
+    <footer className=" w-3/4 md:w-4/5 lg:w-11/12 mx-auto footer bg-gradient-to-bl from-sky-700
+     to-white footer-vertical md:footer-horizontal lg:footer-horizontal footer-start bg-base-200 text-base-content rounded p-10">
   
   <div className=''>
         <div className='rounded-full w-16 h-16 shadow-2xl overflow-hidden '>

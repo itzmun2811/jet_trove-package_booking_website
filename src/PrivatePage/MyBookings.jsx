@@ -27,7 +27,11 @@ const MyBookings = () => {
  console.log(booking)
  
     const handleConfirm=(id)=>{
-        axios.patch(`http://localhost:3000/booking/${id}`)
+        axios.patch(`http://localhost:3000/booking/${id}?email=${user.email}`,{},{
+            headers:{
+                authorization:`Bearer ${user.accessToken}`
+            }
+        })
         .then(result=>{
             console.log(result.data)
             toast.success('status updated sucessfully')

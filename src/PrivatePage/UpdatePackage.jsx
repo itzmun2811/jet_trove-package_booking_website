@@ -28,7 +28,11 @@ const UpdatePackage = () => {
         const formdata = new FormData(form);
         const updatedData= Object.fromEntries(formdata.entries());
           
-        axios.put(`http://localhost:3000/addPackage/${id}`,updatedData)
+        axios.put(`http://localhost:3000/addPackage/${id}?email=${user.email}`,updatedData,{
+            headers:{
+                authorization:`Bearer ${user.accessToken}`
+            }
+        })
         .then(result=>{
             console.log(result.data)
             toast.success('Your Tour Package updated successfully!!')
@@ -43,9 +47,12 @@ const UpdatePackage = () => {
         <>
 
   <h1 className='text-xl font-bold text-center mt-8 '>Update Your Package</h1>
+     
+     
+     
       <div>
 <div className='w-[400px] mx-auto'>
-    <img className='w-3/4 mx-auto' src={""} alt="" />
+    <img className='w-3/4 mx-auto' src={formData.image} alt="" />
 </div>
 
 <form onSubmit={(e)=>handleUpdate(e,formData._id)}>

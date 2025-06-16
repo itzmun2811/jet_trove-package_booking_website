@@ -3,54 +3,75 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 import { toast } from 'react-toastify';
 import { updateProfile } from 'firebase/auth';
+import { auth } from '../firebase/firebase.config';
 
 
 const Register = () => {
-    const {createNewUser,googleSignIn} = use(AuthContext);
+    const {createNewUser,googleSignIn,setLoading} = use(AuthContext);
     const navigate =useNavigate();
     const location =useLocation();
 
-    const handleSubmit =(e)=>{
-      e.preventDefault();
-      const form =e.target;
-      const name=form.name.value;
+ const handleSubmit = (e)=>{
+     e.preventDefault();
+     const form =e.target;
+        const name=form.name.value;
       const photo=form.photo.value;
       const email=form.email.value;
       const password=form.password.value;
-      console.log(name,email,photo,password);
-       createNewUser(email,password)
-       .then(result=>{
+     
+//      const correctPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/;
+     
 
-        console.log(result.user)
-        toast.success("registered successfully")
-        updateProfile(result.user,{
-            displayName:name,
-            photoURL:photo
-        })
-        .then(()=>{
-            console.log('user information')
-        })
-        .catch((error)=>{
-      console.log(error)
-        })
-      navigate(location?.state || '/')
-       })
-       .catch((error)=>{
-        console.log(error)})
-        .then(()=>{
+//       if(!correctPassword.test(password)){
+//         Swal.fire({
+//   icon: "error",
+//   title: "Oops...",
+//   text: "Password should have 1 Uppercase,1 lowercase, 1 special character and length must be 8 or more"
+  
+// });
+    
+//       return;
+//       }
+
+     const profile={
+     displayName:name,
+     photoURL:photo
+     }
+     createNewUser(email,password)
+     .then(result=>{
+       console.log(result.user)
+       toast.success('registered successfully')
+      
+    updateProfile(auth.currentUser,profile)
+            .then(result=>
+                console.log(result))
+         
+            .catch((error)=>{
+                
+             console.log(error);
+            })
+            
+            navigate(location?.state || '/')
+   })
+          
+      .catch((error)=>{
+        console.log(error);
+        Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: (error.message)
+  
+}).then(()=>{
     navigate(location?.state );
 })
+setLoading(false);
 
+      
+   
+            })
+        }
 
-
-
-       
-
-    
-
-    }
-
-        const handleGoogleSignUp =()=>{
+   const handleGoogleSignUp =()=>{
     googleSignIn()
     .then(result=>{
         console.log(result.user)

@@ -46,7 +46,11 @@ console.log(bookInfo)
          }
 
          console.log(newBookings)
-        axios.post("http://localhost:3000/booking",newBookings)
+        axios.post(`http://localhost:3000/booking?email=${user.email}`,newBookings,{
+             headers:{
+            authorization :`Bearer ${user.accessToken}`
+        }
+        })
         .then(result=>{
             console.log(result.data)
             toast.success('booking added sucessfully')

@@ -20,7 +20,7 @@ const AllPackages = () => {
  navigate(`/packageDetails/${id}`)
         }
         else{
-    navigate('/login')
+    navigate('/login',{ state: { from: `/packageDetails/${id}` } })
         }
     
      console.log(id)
@@ -38,8 +38,19 @@ const AllPackages = () => {
         })
         }
         else{
-            setData(loadedData)
-        }
+ axios.get('http://localhost:3000/addPackage')
+      .then((result) => {
+        setData(result.data);
+
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+
+
+        
     }
     return (
         <div className='w-11/12 mx-auto'>

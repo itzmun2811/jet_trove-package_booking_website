@@ -9,17 +9,21 @@ import { MdTour } from 'react-icons/md';
 const BookNow = () => {
     const {id}=useParams();
     const {user}=use(AuthContext);
-    const[bookInfo,setBookInfo] =useState([]);
+    const [loading,setLoading]=useState(true);
+    const[bookInfo,setBookInfo] =useState(null);
     const date= new Date().toLocaleDateString();
 
     useEffect(()=>{
+         setLoading(true);
     axios.get(`http://localhost:3000/addPackage/${id}`)
     .then(result=>{
         console.log(result.data)
         setBookInfo(result.data);
+        setLoading(false)
     })
     .catch(error=>{
         console.log(error)
+        setLoading(false)
     })
     
   },[id])
@@ -63,11 +67,16 @@ console.log(bookInfo)
          
 
     }
-
-
+if (!bookInfo) return <p className='mx-auto p-2 w-11/12'>Loading...it may take some time ...plz wait</p>;
+if (loading) return <p>Loading...</p>;
     return (
+
+        
         <div className='w-11/12 mx-auto'>
-            <h1 className='text-3xl font-bold text-center text-sky-600 shadow-2xl'>Book Now</h1>
+            <h1 className='text-3xl font-bold text-center text-sky-600 
+            shadow-2xl'>Book Now</h1>
+
+           
             <form onSubmit={handleBooking}>
 <div className="bg-base-200 w-11/12 mx-auto text-center">
 
@@ -81,12 +90,12 @@ console.log(bookInfo)
             <div className='flex gap-4 items-center'>
                 <label className="label">Tour Name -</label>
                <input type="text" name='tour-name' className="input"
-                readOnly defaultValue={bookInfo['tour-name']} />
+                readOnly value={bookInfo['tour-name']} />
             </div>
             <div className='flex gap-4'>
                 <label className="label">price</label>
                <input type="text" name='price' className="input" 
-               readOnly defaultValue={bookInfo.price} />
+               readOnly value={bookInfo.price} />
             </div>
           <div className='flex gap-4'>
                 <label className="label">Booking Date</label>

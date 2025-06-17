@@ -1,19 +1,20 @@
 import React, { use } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import { Link, Links, NavLink } from 'react-router';
+import { Link, Links, NavLink, useLocation } from 'react-router';
 import logo2 from "../../src/assets/logo2.webp"
 import { MdModeNight } from "react-icons/md";
 import { MdOutlineLightMode } from "react-icons/md";
 
 const Header = ({ onToggleTheme, theme }) => {
   const {user,logOut} =use(AuthContext);
-  console.log(user?.photoURL)
+  const location =useLocation();
+  
 
   const links=<>
-  <Link to="/">Home</Link>
-  <Link className='mx-3' to="/allPackages">All Packages</Link>
-  <Link className='mr-3' to="/about">About Us</Link>
-  {user && <Link to='/mybookings'>My Bookings</Link>}
+  <NavLink to="/">Home</NavLink>
+  <NavLink className='mx-3' to="/allPackages">All Packages</NavLink>
+  <NavLink className='mr-3' to="/about">About Us</NavLink>
+  {user && <NavLink to='/mybookings'>My Bookings</NavLink>}
   </>
 
   const handleLogOut=()=>{
@@ -77,9 +78,11 @@ const Header = ({ onToggleTheme, theme }) => {
   </ul>
 </div>
 
-</> :<>
-     <button className='btn'><NavLink to='/login'>Login</NavLink> 
-    </button>
+</> :<> <button className=' btn btn-info'>
+    <NavLink to="/login" state={{ from: location }}>
+  Login
+</NavLink>
+</button>
    
     </>
     

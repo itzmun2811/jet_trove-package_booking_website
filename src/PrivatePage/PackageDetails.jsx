@@ -13,11 +13,7 @@ const PackageDetails = () => {
     
   
     useEffect(()=>{
-    axios.get(`http://localhost:3000/addPackage/${id}`,{
-         headers:{
-            authorization :`Bearer ${user.accessToken}`
-        }
-    })
+    axios.get(`http://localhost:3000/addPackage/${id}`)
     .then(result=>{
         console.log(result.data)
         setPackageDetails(result.data);
@@ -26,17 +22,20 @@ const PackageDetails = () => {
         console.log(error)
     })
     
-  },[id,user.accessToken])
+  },[id])
    const handleBookNow =(id)=>{
-    
+          
            axios.patch(`http://localhost:3000/addPackage/${id}`)
             .then(result=>{
                 console.log("booking count updated",result.data)
+                
+    
             })
             .catch(error=>{
                 console.log(error)
             })
             navigate(`/bookNow/${id}`)
+           
    }
   
     return (
@@ -77,10 +76,9 @@ const PackageDetails = () => {
            </div>
            <p>Booking Count-{packageDetails.bookingCount}</p>
 
-           {user.email !== packageDetails['guide-email'] && (
-  <button onClick={()=>handleBookNow(id)} className='btn btn-info'>
+            
+  <button onClick={()=>handleBookNow(packageDetails._id)} className='btn btn-info'>
                   Book now!!! </button>
-)}
            
         
     

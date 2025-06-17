@@ -1,35 +1,54 @@
 import React, { use } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { Link, useLocation, useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
 const Login = () => {
-    const {signInUser,googleSignIn}=use(AuthContext);
+    const {signInUser,googleSignIn,setLoading}=use(AuthContext);
      const navigate =useNavigate();
     const location =useLocation();
+   const from=location.state?.from?.pathname || '/';
+   console.log("Redirect from path:", location.state?.from?.pathname);
 
-const handleLogin =(e)=>{
-      e.preventDefault();
-      const form =e.target;
+ const  handleLogin  = (e)=>{
+            e.preventDefault();
+            const email = e.target.email.value;
+            const password = e.target.password.value;
+            signInUser(email,password)
+            .then(result=>{
+                console.log(result.user);
+                  Swal.fire({
+            title: " You've logged in successfully.",
+            icon: "success",
+            draggable: true});
+
+     navigate(from, {replace:true});
+
+                })
+             .catch(error=>{
+                console.log(error)
+                Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: error.message
+})
+
+setLoading(false)
+
+
+           
+             })}
+
+
     
-      const email=form.email.value;
-      const password=form.password.value;
-      console.log(email,password);
-       signInUser(email,password)
-       .then(result=>{
-        console.log(result.user)
-       })
-       .catch(error=>{
-        console.log(error)
-       })
-      navigate(location?.state || '/')
-      
 
-    }
+
 
     const handleGoogleLogIn =()=>{
     googleSignIn()
     .then(result=>{
         console.log(result.user)
+         navigate(from, { replace: true }); 
     })
     .catch(error=>{
         console.log(error)

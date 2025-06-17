@@ -1,5 +1,6 @@
-# JetTrove – Tour Package Booking Website
-JetTrove is a modern web application for discovering and booking travel experiences. It provides both users and guides with role-specific functionality—travelers can explore and book packages, while guides can add and manage their own tour offerings.
+JetTrove – Tour Package Booking Website
+
+-JetTrove is a modern web application for discovering and booking travel experiences. It provides both users and guides with role-specific functionality—travelers can explore and book packages, while guides can add and manage their own tour offerings.
 
 ## Live URL - 
 
@@ -18,7 +19,7 @@ JetTrove aims to streamline the tour package discovery and booking process by of
 
 ### Authenticated Users
 - Book tour packages
-- View personal bookings
+- View  personal bookings
 - Logout and profile display
 
 ### Guide Features
@@ -36,27 +37,67 @@ JetTrove aims to streamline the tour package discovery and booking process by of
 
 - **React.js** – Frontend framework
 - **React Router DOM** – SPA navigation
+-**React Hooks (useState, useEffect)**-State Management & Effects
 - **Tailwind CSS** – Utility-first styling
 - **DaisyUI** – Prebuilt components with Tailwind
 - **Firebase** – Authentication (email/password)
 - **Axios** – HTTP requests
 - **React Toastify** – Toast notifications
+- **Vite** – Frontend build tool and dev server
+-**React-awesome-reveal**– Animations
+-**Swiper.js** – Carousel/slider functionality
+-**Typewriter Effect** – Typewriter text animation
 
----
+
 
 ## 📦 Used NPM Packages
+## Core Dependencies
+react — UI library
 
-| Package              | Purpose                          |
-|----------------------|----------------------------------|
-| `react`              | Building UI                     |
-| `react-router-dom`   | Routing                         |
-| `axios`              | API requests                    |
-| `firebase`           | User authentication             |
-| `tailwindcss`        | Styling                         |
-| `daisyui`            | Tailwind UI components          |
-| `react-toastify`     | Notification messages           |
-| `framer-motion`      | Page and component animations   |
-| `classnames`         | Conditional class handling      |
+react-dom — React DOM renderer
+
+react-router — Routing for React
+
+axios — HTTP client
+
+firebase — Backend & auth services
+
+## Styling & UI
+tailwindcss — Utility-first CSS framework
+
+daisyui — Tailwind CSS component library
+
+react-icons — Icon library for React
+
+swiper — Modern slider/carousel component
+
+react-awesome-reveal — Animation components powered by Framer Motion
+
+typewriter-effect — Typing text animation
+
+UX Enhancements
+react-toastify — Toast notifications
+
+## Development Tools
+vite — Fast build tool and dev server
+
+@vitejs/plugin-react — React plugin for Vite
+
+eslint — Linting for JavaScript and React
+
+eslint-plugin-react-hooks — Enforce best practices for React hooks
+
+eslint-plugin-react-refresh — React fast refresh ESLint plugin
+
+@eslint/js — ESLint core rules
+
+@types/react & @types/react-dom — TypeScript typings for React (optional)
+
+globals — Global variable definitions for ESLint
+
+
+
+
 
 
 

@@ -30,6 +30,7 @@ const ManagePackage = () => {
             axios.delete(`http://localhost:3000/addPackage/${id}`)
             .then(result=>{
                 console.log(result.data)
+                setInfo(prev => prev.filter(item => item._id !== id));
             })
             .then(error=>{
                 console.log(error)

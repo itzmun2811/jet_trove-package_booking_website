@@ -61,7 +61,7 @@ export const router = createBrowserRouter([
     },
     {
       path:"/bookNow/:id",
-      element:<BookNow></BookNow>
+      element:<PrivateRoute><BookNow></BookNow></PrivateRoute>
     },
     {
       path:'/login',

@@ -35,6 +35,11 @@ const MyBookings = () => {
         .then(result=>{
             console.log(result.data)
             toast.success('status updated sucessfully')
+    setBooking(prev =>prev.map(item =>
+        item._id === id ? { ...item, status: 'completed' } : item
+      )
+    );
+  
         })
         .catch(error=>{
             console.log(error)

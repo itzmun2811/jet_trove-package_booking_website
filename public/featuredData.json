@@ -1,0 +1,62 @@
+[
+  {
+    "tourName": "Srimangal Forest & Tea Estate Tour",
+    "tourImage": "https://i.ibb.co/392FTd4J/dc.jpg",
+    "guideName": "Nayeem Rahman",
+    "guideImage": "https://i.ibb.co/N23hyncF/download.jpg",
+    "duration": "3 Days, 2 Nights",
+    "departureDate": "2025-07-12",
+    "price": "$179",
+    "viewDetails": "/packages/srimangal-tour"
+  },
+  {
+    "tourName": "Sundarbans Adventure Trip",
+    "tourImage": "https://i.ibb.co/MkrXdmR9/sundarbans-bangladesh.jpg",
+    "guideName": "Maliha Noor",
+    "guideImage": "https://i.ibb.co/SwSK9v5w/lovepik-young-female-tour-guide-picture-501046595.jpg",
+    "duration": "4 Days, 3 Nights",
+    "departureDate": "2025-08-01",
+    "price": "$299",
+    "viewDetails": "/packages/sundarbans-tour"
+  },
+  {
+    "tourName": "Kuakata Sea & Sunrise Journey",
+    "tourImage": "https://i.ibb.co/hFD9sDy9/image-279-58619-kuakata.jpg",
+    "guideName": "Rifat Chowdhury",
+    "guideImage": "https://i.ibb.co/NgB3nvq8/young-bearded-man-with-striped-shirt-273609-5677.jpg",
+    "duration": "3 Days, 2 Nights",
+    "departureDate": "2025-07-18",
+    "price": "$189",
+    "viewDetails": "/packages/kuakata-tour"
+  },
+  {
+    "tourName": "Chittagong Hill Tracts Trek",
+    "tourImage": "https://i.ibb.co/TBJ7MpMH/164ffac5686d35fbe347c96a8218f4db.jpg",
+    "guideName": "Sabrina Islam",
+    "guideImage": "https://i.ibb.co/GQKBSxJ4/lifestyle-people-emotions-casual-concept-confident-nice-smiling-asian-woman-cross-arms-chest-confide.jpg",
+    "duration": "5 Days, 4 Nights",
+    "departureDate": "2025-09-05",
+    "price": "$349",
+    "viewDetails": "/packages/hilltracts-tour"
+  },
+  {
+    "tourName": "Rangamati Lake Retreat",
+    "tourImage": "https://i.ibb.co/MDqD0v4C/Hanging-Bridge-Kaptai-Lake.jpg",
+    "guideName": "Farhan Kabir",
+    "guideImage": "https://i.ibb.co/rGjDwd1G/photo-1566753323558-f4e0952af115.jpg",
+    "duration": "3 Days, 2 Nights",
+    "departureDate": "2025-07-22",
+    "price": "$189",
+    "viewDetails": "/packages/rangamati-tour"
+  },
+  {
+    "tourName": "Bandarban Nature Trail",
+    "tourImage": "https://i.ibb.co/FkmPKhY2/Discover-the-Natural-Beauty-and-Tribal-Culture-of-Bandarban-1024x742.webp",
+    "guideName": "Tania Akter",
+    "guideImage": "https://i.ibb.co/PvcVqM41/mulatto-woman-student-holding-book-in-her-hand-and-study-back-to-school-image-free-photo.jpg",
+    "duration": "4 Days, 3 Nights",
+    "departureDate": "2025-08-15",
+    "price": "$269",
+    "viewDetails": "/packages/bandarban-tour"
+  }
+]

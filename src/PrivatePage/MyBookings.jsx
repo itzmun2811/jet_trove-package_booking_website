@@ -9,7 +9,7 @@ const MyBookings = () => {
 
   useEffect(()=>{
 
-     axios.get(`http://localhost:3000/booking?email=${user.email}`,{
+     axios.get(`https://tour-management-server-kappa.vercel.app/booking?email=${user.email}`,{
         headers:{
             authorization :`Bearer ${user.accessToken}`
         }
@@ -27,7 +27,7 @@ const MyBookings = () => {
  console.log(booking)
  
     const handleConfirm=(id)=>{
-        axios.patch(`http://localhost:3000/booking/${id}?email=${user.email}`,{},{
+        axios.patch(`https://tour-management-server-kappa.vercel.app/booking/${id}?email=${user.email}`,{},{
             headers:{
                 authorization:`Bearer ${user.accessToken}`
             }
@@ -76,7 +76,7 @@ const MyBookings = () => {
   <tr>
     <td>{book['tour-name']}</td>
     <td>{book.guideName}</td>
-    <td>{book.contact}</td>
+    <td>{book.guideContact}</td>
     <td>{book.date}</td>
     <td>{book.location}</td>
     <td>{book.destination}</td>

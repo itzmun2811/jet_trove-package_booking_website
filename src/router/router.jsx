@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
     {
    path:"/allPackages",
    element:<AllPackages></AllPackages>,
-   loader:()=>fetch('http://localhost:3000/addPackage')
+   loader:()=>fetch('https://tour-management-server-kappa.vercel.app/addPackage')
     },
     {
     path:"/about",

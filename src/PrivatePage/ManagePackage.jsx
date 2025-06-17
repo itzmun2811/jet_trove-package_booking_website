@@ -2,6 +2,7 @@ import React, { use, useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const ManagePackage = () => {
 
@@ -11,7 +12,7 @@ const ManagePackage = () => {
      console.log(user.accessToken)
 
         useEffect(()=>{
-            axios.get(`http://localhost:3000/addPackageByEmail?email=${user.email}`,{
+            axios.get(`https://tour-management-server-kappa.vercel.app/addPackageByEmail?email=${user.email}`,{
                 headers:{
                     authorization:`Bearer ${user.accessToken}`
                 }
@@ -26,16 +27,33 @@ const ManagePackage = () => {
 
         },[user])
 
-        const handleDelete=(id)=>{
-            axios.delete(`http://localhost:3000/addPackage/${id}`)
-            .then(result=>{
-                console.log(result.data)
-                setInfo(prev => prev.filter(item => item._id !== id));
-            })
-            .then(error=>{
-                console.log(error)
-            })
-        }
+
+const handleDelete = (id) => {
+        Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      axios.delete(`https://tour-management-server-kappa.vercel.app/addPackage/${id}`)
+        .then((res) => {
+          if (res.data.deletedCount > 0) {
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            setInfo(prev => prev.filter(item => item._id !== id));
+          }
+        })
+        .catch((error) => {
+          console.error("Delete failed:", error);
+         
+        });
+    }
+  });
+};
+
 
         const handleUpdate=(id)=>{
             navigate(`/updatePackage/${id}`)

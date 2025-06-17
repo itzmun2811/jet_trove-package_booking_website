@@ -2,7 +2,7 @@ JetTrove – Tour Package Booking Website
 
 -JetTrove is a modern web application for discovering and booking travel experiences. It provides both users and guides with role-specific functionality—travelers can explore and book packages, while guides can add and manage their own tour offerings.
 
-## Live URL - 
+## Live URL - https://jet-trove-package-booking-website-a11.netlify.app/
 
 
 ## Project Purpose

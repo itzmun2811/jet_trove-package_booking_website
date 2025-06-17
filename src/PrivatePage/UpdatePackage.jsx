@@ -11,7 +11,7 @@ const UpdatePackage = () => {
     
   
   useEffect(()=>{
-    axios.get(`http://localhost:3000/addPackage/${id}`)
+    axios.get(`https://tour-management-server-kappa.vercel.app/addPackage/${id}`)
     .then(result=>{
         console.log(result.data)
         setFormData(result.data)
@@ -28,7 +28,7 @@ const UpdatePackage = () => {
         const formdata = new FormData(form);
         const updatedData= Object.fromEntries(formdata.entries());
           
-        axios.put(`http://localhost:3000/addPackage/${id}?email=${user.email}`,updatedData,{
+        axios.put(`https://tour-management-server-kappa.vercel.app/addPackage/${id}?email=${user.email}`,updatedData,{
             headers:{
                 authorization:`Bearer ${user.accessToken}`
             }

@@ -4,12 +4,14 @@ import { AuthContext } from '../context/AuthContext';
 import { toast } from 'react-toastify';
 import { updateProfile } from 'firebase/auth';
 import { auth } from '../firebase/firebase.config';
+import Swal from 'sweetalert2';
 
 
 const Register = () => {
     const {createNewUser,googleSignIn,setLoading} = use(AuthContext);
     const navigate =useNavigate();
     const location =useLocation();
+    const from=location.state?.from?.pathname || '/';
 
  const handleSubmit = (e)=>{
      e.preventDefault();
@@ -18,20 +20,18 @@ const Register = () => {
       const photo=form.photo.value;
       const email=form.email.value;
       const password=form.password.value;
+     const correctPassword= /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
      
-//      const correctPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/;
-     
-
-//       if(!correctPassword.test(password)){
-//         Swal.fire({
-//   icon: "error",
-//   title: "Oops...",
-//   text: "Password should have 1 Uppercase,1 lowercase, 1 special character and length must be 8 or more"
+if(!correctPassword.test(password)){
+        Swal.fire({
+  icon: "error",
+  title: "wrong password!!",
+  text: "Password should have 1 Uppercase,1 lowercase,  and length must be 6 or more"
   
-// });
+});
     
-//       return;
-//       }
+      return;
+      }
 
      const profile={
      displayName:name,
@@ -51,7 +51,7 @@ const Register = () => {
              console.log(error);
             })
             
-            navigate(location?.state || '/')
+           navigate(from, {replace:true});
    })
           
       .catch((error)=>{
@@ -61,8 +61,6 @@ const Register = () => {
   title: "Oops...",
   text: (error.message)
   
-}).then(()=>{
-    navigate(location?.state );
 })
 setLoading(false);
 
@@ -71,22 +69,23 @@ setLoading(false);
             })
         }
 
-   const handleGoogleSignUp =()=>{
+    const handleGoogleSignUp =()=>{
     googleSignIn()
     .then(result=>{
         console.log(result.user)
+         navigate(from, { replace: true }); 
     })
     .catch(error=>{
         console.log(error)
     })
     }
     return (
- <div className="hero w-11/12 mx-auto ">
+ <div className="hero w-11/12 my-6 mx-auto bg-gradient-to-tl from-sky-700 to-white ">
 
   <form onSubmit={handleSubmit}>
 <div className="card bg-base-100 lg:mt-12 lg:mb-12 shadow-2xl p-8">
       <div className="card-body">
-         <h1 className="text-5xl text-teal-700 font-bold">Register now!</h1>
+         <h1 className="text-5xl text-sky-700 font-bold">Register now!</h1>
         <fieldset className="fieldset">
           <label className="label">Name</label>
           <input type="text" name='name' className="input" placeholder="Name" />

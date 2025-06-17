@@ -22,12 +22,8 @@ const AddPackage = () => {
             bookingCount:0,
         }
         console.log(newPackageData)
-        axios.post("http://localhost:3000/addPackage",newPackageData,
-        //     {
-        //     headers:{
-        //         authorization:`Bearer ${user.accessToken}`
-        //     }
-        // }
+        axios.post("https://tour-management-server-kappa.vercel.app/addPackage",newPackageData,
+       
            
         )
         .then(res=>{

@@ -16,19 +16,14 @@ const AllPackages = () => {
     console.log(data)
 
     const handleDetails=(id)=>{
-        if(user){
+ 
  navigate(`/packageDetails/${id}`)
-        }
-        else{
-    navigate('/login',{ state: { from: `/packageDetails/${id}` } })
-        }
-    
-     console.log(id)
+      
     }
     const handleSearchText =()=>{
         console.log('hello')
         if(searchValue){
-            axios.get(`http://localhost:3000/addPackageBySearch?search=${searchValue}`)
+            axios.get(`https://tour-management-server-kappa.vercel.app/addPackageBySearch?search=${searchValue}`)
         .then(result=>{
             setData(result.data)
             console.log(result.data)
@@ -38,7 +33,7 @@ const AllPackages = () => {
         })
         }
         else{
- axios.get('http://localhost:3000/addPackage')
+ axios.get('https://tour-management-server-kappa.vercel.app/addPackage')
       .then((result) => {
         setData(result.data);
 

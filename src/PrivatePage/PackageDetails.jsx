@@ -13,7 +13,7 @@ const PackageDetails = () => {
     
   
     useEffect(()=>{
-    axios.get(`http://localhost:3000/addPackage/${id}`)
+    axios.get(`https://tour-management-server-kappa.vercel.app/addPackage/${id}`)
     .then(result=>{
         console.log(result.data)
         setPackageDetails(result.data);
@@ -22,10 +22,14 @@ const PackageDetails = () => {
         console.log(error)
     })
     
-  },[id])
+  },[id,user.accessToken])
    const handleBookNow =(id)=>{
           
-           axios.patch(`http://localhost:3000/addPackage/${id}`)
+           axios.patch(`https://tour-management-server-kappa.vercel.app/addPackage/${id}`,{
+            headers:{
+                authorization:`Bearer ${user.accessToken}`
+            }
+           })
             .then(result=>{
                 console.log("booking count updated",result.data)
                 

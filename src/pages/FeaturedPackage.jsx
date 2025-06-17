@@ -9,7 +9,7 @@ const FeaturedPackage = () => {
      const navigate=useNavigate();
     
     useEffect(()=>{
-        axios.get('http://localhost:3000/featuredData')
+        axios.get('https://tour-management-server-kappa.vercel.app/featuredData')
        .then(result=> {
         console.log(result.data)
           setPackages(result.data)

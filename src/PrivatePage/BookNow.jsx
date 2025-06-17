@@ -15,7 +15,7 @@ const BookNow = () => {
 
     useEffect(()=>{
          setLoading(true);
-    axios.get(`http://localhost:3000/addPackage/${id}`)
+    axios.get(`https://tour-management-server-kappa.vercel.app/addPackage/${id}`)
     .then(result=>{
         console.log(result.data)
         setBookInfo(result.data);
@@ -50,7 +50,7 @@ console.log(bookInfo)
          }
 
          console.log(newBookings)
-        axios.post(`http://localhost:3000/booking?email=${user.email}`,newBookings,{
+        axios.post(`https://tour-management-server-kappa.vercel.app/booking?email=${user.email}`,newBookings,{
              headers:{
             authorization :`Bearer ${user.accessToken}`
         }
@@ -67,7 +67,8 @@ console.log(bookInfo)
          
 
     }
-if (!bookInfo) return <p className='mx-auto p-2 w-11/12'>Loading...it may take some time ...plz wait</p>;
+if (!bookInfo) return <p className='mx-auto p-2 w-11/12'>Loading...
+it may take some time ...plz wait</p>;
 if (loading) return <p>Loading...</p>;
     return (
 
@@ -90,7 +91,7 @@ if (loading) return <p>Loading...</p>;
             <div className='flex gap-4 items-center'>
                 <label className="label">Tour Name -</label>
                <input type="text" name='tour-name' className="input"
-                readOnly value={bookInfo['tour-name']} />
+                readOnly value={bookInfo?.['tour-name'] || ''} />
             </div>
             <div className='flex gap-4'>
                 <label className="label">price</label>

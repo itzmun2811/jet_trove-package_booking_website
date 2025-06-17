@@ -27,11 +27,7 @@ const Login = () => {
                 })
              .catch(error=>{
                 console.log(error)
-                Swal.fire({
-  icon: "error",
-  title: "Oops...",
-  text: error.message
-})
+                
 
 setLoading(false)
 
@@ -56,12 +52,12 @@ setLoading(false)
     }
 
     return (
-      <div className="hero w-11/12 mx-auto ">
+      <div className="hero w-11/12 my-6 mx-auto bg-gradient-to-tl from-sky-700 to-white ">
 
   <form onSubmit={handleLogin}>
 <div className="card bg-base-100 lg:mt-12 lg:mb-12 shadow-2xl p-8">
       <div className="card-body">
-         <h1 className="text-5xl text-teal-700 font-bold">Login now!</h1>
+         <h1 className="text-5xl text-sky-700 font-bold">Login now!</h1>
         <fieldset className="fieldset">
           <label className="label">Email</label>
           <input type="email" name='email' className="input" placeholder="Email" />

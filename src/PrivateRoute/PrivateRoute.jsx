@@ -14,7 +14,7 @@ return <span className="loading loading-infinity loading-xs"></span>
 
  }
   if(!user){
-   return <Navigate to='/login' state={{from:location}} replace></Navigate>
+   return <Navigate to='/login' state={{from:location}} replace />
   }
 
 

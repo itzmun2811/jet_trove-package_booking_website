@@ -94,6 +94,18 @@ eslint-plugin-react-refresh — React fast refresh ESLint plugin
 @types/react & @types/react-dom — TypeScript typings for React (optional)
 
 globals — Global variable definitions for ESLint
+ ## 🛠️ How to Run the Project Locally
+## 1. Clone the Repository
+git clone https://github.com/your-username/jet-trove-tour-booking.git
+cd jet-trove-tour-booking
+## 2. Install Dependencies
+npm install
+## 3. Configure Firebase
+Create a Firebase project and enable email/password auth
+Replace your Firebase config in the project’s .env or directly inside the Firebase initialization file.
+
+## 4. Run the App
+npm run dev
 
 
 
